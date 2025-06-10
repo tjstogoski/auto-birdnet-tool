@@ -1,0 +1,6 @@
+.ipynb_checkpoints
+.DS_Store
+
+/data/raw/audio_data/
+
+/notebooks/99post.ipynb
