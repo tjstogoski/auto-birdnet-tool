@@ -19,7 +19,7 @@ RUN conda config --add channels conda-forge
 # Create environment
 COPY environment.yml /home/jovyan/ 
 RUN conda install -n base -c conda-forge mamba
-RUN mamba env update -n base -f /home/jovyan/environment.yml
+RUN mamba env update -n base -f /home/jovyan/environment.yml --strict-channel-priority
 
 # Activating environment
 RUN echo ". /opt/conda/etc/profile.d/conda.sh" >> /home/jovyan/.bash_profile && \
