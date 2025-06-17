@@ -24,7 +24,7 @@ dependencies:
 
   # Interactive computing
   - ipython
-  - ipykernal
+  - ipykernel
   - nbconvert
 
   # Plotting
