@@ -6,13 +6,13 @@
 
 ## Description
 
-This project seeks to use the (https://github.com/birdnet-team/birdnet)[birdnet] python library to process multiple WAV audio files into a CSV file of the recorded bird species. It is being completed to assist the research of the USDA and Colorado State University at Rocky Mountain Biological Laboratory Field Station to asses changes to occupancy and biodiversity in relation to pyrodiversity. Acoustic monitoring provides a non-invasive method to estimate bird densities and abundances with results comparable to human surveys (Pérez-Granados & Traba, 2021). Automating the processing of the data avoids having to feed files through the (https://github.com/birdnet-team/BirdNET-Analyzer)[BirdNET Analyzer] individually. The end result is a CSV file of predicted bird species and the relevant metadata that the staff are able to use for their analyses.
+This project seeks to use the [birdnet](https://github.com/birdnet-team/birdnet) python library to process multiple WAV audio files into a CSV file of the recorded bird species. It is being completed to assist the research of the USDA and Colorado State University at Rocky Mountain Biological Laboratory Field Station to asses changes to occupancy and biodiversity in relation to pyrodiversity. Acoustic monitoring provides a non-invasive method to estimate bird densities and abundances with results comparable to human surveys (Pérez-Granados & Traba, 2021). Automating the processing of the data avoids having to feed files through the [BirdNET Analyzer](https://github.com/birdnet-team/BirdNET-Analyzer) individually. The end result is a CSV file of predicted bird species and the relevant metadata that the staff are able to use for their analyses.
 
 ---
 
 ## Data Description
 
-WAV Audio Files: Audio files are recorded in the field by stationary acoustic monitors and were provided by the project partner. They provide the recordings of bird calls to be analyzed and fill the CSV file.
+WAV Audio Files: Audio files are recorded in the field by stationary acoustic monitors and were provided by the project partner. They provide the recordings of bird calls to be analyzed and fill the CSV file. (Awaiting permission from project partner to publish and preferred citation details.)
 
 
 
@@ -20,9 +20,15 @@ WAV Audio Files: Audio files are recorded in the field by stationary acoustic mo
 
 ## Instructions
 
-A python version between 3.9 but older than 3.12 is required to run the notebooks.
+Download the project files and ensure the [conda](https://www.anaconda.org/anaconda/conda) package manager is installed on your machine. A minimalist installation is available in [miniconda](https://www.anaconda.com/download/success).
 
-The notebooks are dependent on the BirdNET package which can be installed with the command:  ```pip install birdnet```
+In a bash terminal, change directories to the project directory. Create the project environment from the environment.yml file with ```conda env create -f environment.yml```. Activate the environment with ```conda activate bird-geospatial-env```.
+
+The three notebooks can be run in any order:
+
+* 00site_map.ipynb : Generates an interactive map of the site of the Cameron Peak 2020 fire.
+* 01birdnet_exploration.ipynb : Exploration of the functions of the birdnet python package and trials to process audio files.
+* 02process_wavs.ipynb : Streamlined workflow of looping through and processing audio files.
 
 ---
 
