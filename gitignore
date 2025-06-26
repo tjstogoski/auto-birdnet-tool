@@ -1,6 +1,6 @@
 # Repository Specific
-/data
-/notebooks/99post.ipynb
+data/
+notebooks/99post.ipynb
 
 # From github/gitignore/Python.gitignore
 
