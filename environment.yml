@@ -26,6 +26,7 @@ dependencies:
   - ipython
   - ipykernel
   - nbconvert
+  - tqdm
 
   # Plotting
   # Matplotlib

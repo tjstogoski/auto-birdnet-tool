@@ -1,0 +1,4 @@
+# requirements.txt
+birdnet
+pandas
+tqdm

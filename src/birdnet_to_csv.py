@@ -8,6 +8,7 @@ from birdnet import (SpeciesPredictions,
                      predict_species_at_location_and_time
 )
 import pandas as pd
+import tqdm
 
 
 
@@ -24,22 +25,27 @@ if __name__ == "__main__":
     base_dir = Path('.')
 
     # Generate list of paths to all .wav audio files
-    wav_files = list(base_dir.rglob('*.wav'))
+    wav_files = [
+        f for f in base_dir.rglob('*.wav')
+        # Exclude Bat Audio files
+        if "Data" not in f.parts and "Data2" in f.parts
+    ]
 
     # Establish empty dictionary to write results to
     result_dict = {}
 
     # Loop through .wav files
-    for file_path in wav_files:
+    for file_path in tqdm(wav_files):
+         # File name for metadata
+        file_name = os.path.basename(file_path)
         # Run BirdNET artificial neural network
         result = SpeciesPredictions(predict_species_within_audio_file(
             file_path, 
             min_confidence=0.50,
             species_filter=species_set))
-        # File name for metadata
-        file_name = os.path.basename(file_path)
+
         # Add to dictionary
-        result_dict[f'{file_name}'] = result
+        result_dict[file_name] = result
 
 
     results_temp = []
@@ -76,8 +82,11 @@ if __name__ == "__main__":
                                                 'Start(s)',
                                                 'End(s)',
                                                 'Confidence'])
+    
+    # Remove duplicate rows
+    result_species_df.drop_duplicates(inplace=True)
 
     # Convert DataFrame to csv file and save to same folder as script
     result_species_df.to_csv(
-        Path('.clean_bird_data.csv'),
+        'clean_bird_data.csv',
         index=False)
