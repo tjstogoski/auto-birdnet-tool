@@ -8,8 +8,7 @@ from birdnet import (SpeciesPredictions,
                      predict_species_at_location_and_time
 )
 import pandas as pd
-import tqdm
-
+from tqdm.notebook import tqdm
 
 
 
@@ -31,11 +30,14 @@ if __name__ == "__main__":
         if "Data" not in f.parts and "Data2" in f.parts
     ]
 
+    # Print wav_files for debugging
+    print(f'Files found: {wav_files}')
+
     # Establish empty dictionary to write results to
     result_dict = {}
 
     # Loop through .wav files
-    for file_path in tqdm(wav_files):
+    for file_path in wav_files:
          # File name for metadata
         file_name = os.path.basename(file_path)
         # Run BirdNET artificial neural network
