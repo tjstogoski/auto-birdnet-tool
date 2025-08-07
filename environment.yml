@@ -25,6 +25,7 @@ dependencies:
   # Interactive computing
   - ipython
   - ipykernel
+  - ipywidgets
   - nbconvert
   - tqdm
 

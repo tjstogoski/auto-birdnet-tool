@@ -16,8 +16,24 @@ warnings.filterwarnings('ignore')
 logging.basicConfig(level=logging.ERROR)
 
 def gen_species_set():
-    lat = int(input("Enter the latitude to filter species (e.g. 40.0) "))
-    lon = int(input("Enter the longitude to filter species (e.g. -105.0): "))
+    """
+    Generates a set of bird species based off user inputted lat/lon.
+
+    Parameters
+    ----------
+    lat : float
+        Latitude value ranging from -180 to 180 with one decimal place.
+    lon : float
+        Longitude value ranging from -180 to 180 with one decimal place.
+    Returns
+    -------
+    species_set : set
+        Set of bird species name and common names found at location.
+    """
+    lat = round(float(
+        input("Enter the latitude to filter species (e.g. 40.0) ")), 1)
+    lon = round(float(
+        input("Enter the longitude to filter species (e.g. -105.0): ")), 1)
     species_list = predict_species_at_location_and_time(lat, lon)
     species_set = set(species_list.keys())
 
