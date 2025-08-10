@@ -30,7 +30,7 @@ Clone the repository to your machine and ensure the [conda](https://www.anaconda
 
 In a bash terminal, change directories to the project directory. Create the project environment from the environment.yml file with ```conda env create -f environment.yml```. Activate the environment with ```conda activate bird-geospatial-env```.
 
-The three notebooks can be run in a Jupyter notebook type interactive environment such as [VS Code](https://code.visualstudio.com/download). They can be ran in any order:
+The two notebooks can be run in a Jupyter notebook type interactive environment such as [VS Code](https://code.visualstudio.com/download). They can be ran in any order:
 
 * 01site_map.ipynb : Generates an interactive map of the site of the Cameron Peak 2020 fire. (Optional)
 * 02process_wavs.ipynb : Example usage of looping through and processing audio files.
